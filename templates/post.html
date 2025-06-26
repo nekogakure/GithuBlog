@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ site_name }} - {{ title }}</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background: {{ background_color }};
+      color: {{ text_color }};
+      line-height: 1.6;
+    }
+
+    a {
+      color: {{ link_color }};
+      text-decoration: none;
+    }
+
+    header {
+      background: {{ theme_color }};
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+      gap: 20px;
+    }
+
+    aside.index {
+      width: 20%;
+      background: rgba(0, 0, 0, 0.03);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    aside.profile {
+      width: 20%;
+      background: rgba(0, 0, 0, 0.03);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    main {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    main h2 {
+      font-size: 1.8em;
+      border-bottom: 2px solid {{ theme_color }};
+      padding-bottom: 0.5em;
+      margin-top: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+      color: #777;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    {{ site_name }}
+  </header>
+
+  <div class="container">
+    <aside class="index">
+      <h3>インデックス</h3>
+      <ul>
+        {% for post in posts %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </aside>
+
+    <main>
+      <h2>{{ title }}</h2>
+      <div>{{ content }}</div>
+    </main>
+
+    <aside class="profile">
+      <h3>この記事を書いた人</h3>
+      <p>{{ bio }}</p>
+      <h4>SNS</h4>
+      <ul>
+        {% for name, url in sns.items() %}
+          <li><a href="{{ url }}">{{ name|capitalize }}</a></li>
+        {% endfor %}
+      </ul>
+    </aside>
+  </div>
+
+  <footer>
+    &copy; {{ current_year }} {{ site_name }}. All rights reserved.
+  </footer>
+</body>
+</html>
