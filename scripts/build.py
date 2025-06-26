@@ -41,6 +41,7 @@ for md_file in sorted(os.listdir("posts")):
         print(f"Rendering {html_filename}")
         rendered = post_template.render(
             site_name=config["site_name"],
+            owner=config["owner"],
             title=title,
             bio=config["bio"],
             sns=config["sns"],
@@ -58,6 +59,7 @@ posts_sorted = sorted(posts, key=lambda x: x["date"], reverse=True)
 print(f"Rendering index.html {len(posts_sorted)} posts")
 rendered_index = index_template.render(
     site_name=config["site_name"],
+    owner=config["owner"],
     bio=config["bio"],
     sns=config["sns"],
     theme_color=config["theme_color"],
