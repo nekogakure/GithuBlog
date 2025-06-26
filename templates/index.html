@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ site_name }} - トップページ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background: {{ background_color }};
+      color: {{ text_color }};
+      line-height: 1.6;
+    }
+
+    a {
+      color: {{ link_color }};
+      text-decoration: none;
+    }
+
+    header {
+      background: {{ theme_color }};
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 20px;
+      gap: 20px;
+    }
+
+    aside.index {
+      flex: 2;
+      background: rgba(0, 0, 0, 0.03);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    aside.profile {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.03);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    ul.article-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.article-list li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+      color: #777;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    {{ site_name }}
+  </header>
+
+  <div class="container">
+    <aside class="index">
+      <h3>記事一覧</h3>
+      <ul class="article-list">
+        {% for post in posts %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </aside>
+
+    <aside class="profile">
+      <h3>プロフィール</h3>
+      <p>{{ bio }}</p>
+      <h4>SNS</h4>
+      <ul>
+        {% for name, url in sns.items() %}
+          <li><a href="{{ url }}">{{ name|capitalize }}</a></li>
+        {% endfor %}
+      </ul>
+    </aside>
+  </div>
+
+  <footer>
+    &copy; {{ current_year }} {{ site_name }}. All rights reserved.
+  </footer>
+</body>
+</html>
