@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>GithuBlog - トップページ</title>
+  <title>GithuBlog - 2025-06-26-使い方.md</title>
   <style>
     body {
       margin: 0;
@@ -27,33 +27,39 @@
 
     .container {
       display: flex;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 20px auto;
       padding: 0 20px;
       gap: 20px;
     }
 
     aside.index {
-      flex: 2;
+      width: 20%;
       background: rgba(0, 0, 0, 0.03);
       padding: 20px;
       border-radius: 8px;
     }
 
     aside.profile {
-      flex: 1;
+      width: 20%;
       background: rgba(0, 0, 0, 0.03);
       padding: 20px;
       border-radius: 8px;
     }
 
-    ul.article-list {
-      list-style: none;
-      padding-left: 0;
+    main {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    ul.article-list li {
-      margin-bottom: 10px;
+    main h2 {
+      font-size: 1.8em;
+      border-bottom: 2px solid #333399;
+      padding-bottom: 0.5em;
+      margin-top: 0;
     }
 
     footer {
@@ -72,19 +78,21 @@
   </header>
 
   <div class="container">
-    <aside class="index">
-      <h3>記事一覧</h3>
-      <ul class="article-list">
-        
-          <li><a href="2025-06-26-Test.html">TESTS</a></li>
-        
-          <li><a href="2025-06-26-使い方.html">2025-06-26-使い方.md</a></li>
-        
-      </ul>
-    </aside>
+    <main>
+      <h2>2025-06-26-使い方.md</h2>
+      <a href="./">←戻る</a>
+      <div><ol>
+<li><a href="https://github.com/nekogakure/GithuBlog/">リポジトリ</a>へアクセス</li>
+<li><strong>Fork</strong>ボタンを押してフォークする</li>
+<li>config.ymlを書き換える</li>
+<li>/posts/に<strong>YYYY-MM-DD-タイトルの方式で</strong>記事を書く（こうしないとバグります）</li>
+<li>/docs/以下をGithubPagesに公開</li>
+<li>公開したページにアクセスすると、書いた記事が表示されるはずです</li>
+</ol></div>
+    </main>
 
     <aside class="profile">
-      <h3>プロフィール</h3>
+      <h3>この記事を書いた人</h3>
       <p><strong>nekogakure</strong></p>
       <p>C/ASM/NEXT/TSが好きな中学生</p>
       <h4>SNS</h4>
