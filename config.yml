@@ -1,0 +1,10 @@
+site_name: "GithuBlog"
+owner: "nekogakure"
+bio: "C/ASM/NEXT/TSが好きな中学生"
+sns:
+  twitter: "https//twitter.com/"
+  github: "https://github.com/nekogakure"
+theme_color: "#333399"
+text_color: "#222222"
+background_color: "#f8f8ff"
+link_color: "#2979ff"
