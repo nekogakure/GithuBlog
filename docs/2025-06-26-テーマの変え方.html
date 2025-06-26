@@ -84,21 +84,21 @@
       <div><p>/templates/以下にあるファイルのindex.htmlがホーム画面、post.htmlが投稿表示画面です。また、cssを別途作成しても変換しないので使えません。html内に含めてください。</p>
 <h3>各要素</h3>
 <p>{{ site_name }}: サイト名を取得します</p>
-<p>```
+<p><code>
 {% for post in posts %}
 <br />
 <li><a href="{{ post.filename }}">{{ post.title }}</a></li></p>
 <p>{% endfor %}
-```
+</code>
 : 投稿一覧を取得します</p>
 <p>{{ owner }}: 名前を取得します</p>
 <p>{{ bio }}: 自己紹介を取得します</p>
-<p>```
+<p><code>
 {% for name, url in sns.items() %}
 <br />
 <li><a href="{{ url }}">{{ name|capitalize }}</a></li></p>
 <p>{% endfor %}
-```
+</code>
 : 外部サイトのurl（config.yml内のsns）を取得します</p>
 <p>{{ content|safe }}: ブログコンテンツを取得します。page.html内でのみ使用可能。</p>
 <p>{{ title }}: ブログタイトルを取得します。page.html内でのみ使用可能。</p>
