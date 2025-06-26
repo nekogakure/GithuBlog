@@ -2,8 +2,7 @@ name: Build Blog
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -19,14 +18,8 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install Markdown converter
+      - name: Install dependencies
         run: pip install markdown pyyaml jinja2
 
       - name: Generate blog
         run: python scripts/build.py
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_html
