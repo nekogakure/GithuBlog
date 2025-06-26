@@ -2,7 +2,9 @@ import os
 import markdown
 import yaml
 from jinja2 import Environment, FileSystemLoader
-from datetime import datetime
+
+output_dir = "docs"
+os.makedirs(output_dir, exist_ok=True)
 
 with open("config.yml", "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
@@ -29,7 +31,6 @@ for md_file in sorted(os.listdir("posts")):
             "content": html_content,
             "filename": html_filename,
         })
-        # 記事HTML生成
         rendered = post_template.render(
             site_name=config["site_name"],
             title=title,
@@ -41,7 +42,7 @@ for md_file in sorted(os.listdir("posts")):
             link_color=config["link_color"],
             content=html_content,
         )
-        with open(os.path.join("docs", html_filename), "w", encoding="utf-8") as outf:
+        with open(os.path.join(output_dir, html_filename), "w", encoding="utf-8") as outf:
             outf.write(rendered)
 
 posts_sorted = sorted(posts, key=lambda x: x["date"], reverse=True)
@@ -55,5 +56,5 @@ rendered_index = index_template.render(
     link_color=config["link_color"],
     posts=posts_sorted,
 )
-with open(os.path.join("docs", "index.html"), "w", encoding="utf-8") as outf:
+with open(os.path.join(output_dir, "index.html"), "w", encoding="utf-8") as outf:
     outf.write(rendered_index)
