@@ -4,7 +4,7 @@ import yaml
 from jinja2 import Environment, FileSystemLoader
 from datetime import datetime
 
-with open("../config.yml", "r", encoding="utf-8") as f:
+with open("config.yml", "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
 
 env = Environment(loader=FileSystemLoader("templates"), autoescape=True)
