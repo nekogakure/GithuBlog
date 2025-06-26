@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>GithuBlog - 2025-06-26-テーマの変え方.md</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background: #f8f8ff;
+      color: #222222;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #2979ff;
+      text-decoration: none;
+    }
+
+    header {
+      background: #333399;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+      gap: 20px;
+    }
+
+    aside.index {
+      width: 20%;
+      background: rgba(0, 0, 0, 0.03);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    aside.profile {
+      width: 20%;
+      background: rgba(0, 0, 0, 0.03);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    main {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    main h2 {
+      font-size: 1.8em;
+      border-bottom: 2px solid #333399;
+      padding-bottom: 0.5em;
+      margin-top: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+      color: #777;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    GithuBlog
+  </header>
+
+  <div class="container">
+    <main>
+      <h2>2025-06-26-テーマの変え方.md</h2>
+      <a href="./">←戻る</a>
+      <div><p>/templates/以下にあるファイルのindex.htmlがホーム画面、post.htmlが投稿表示画面です。また、cssを別途作成しても変換しないので使えません。html内に含めてください。</p>
+<h3>各要素</h3>
+<p>{{ site_name }}: サイト名を取得します</p>
+<p>```
+{% for post in posts %}
+<br />
+<li><a href="{{ post.filename }}">{{ post.title }}</a></li></p>
+<p>{% endfor %}
+```
+: 投稿一覧を取得します</p>
+<p>{{ owner }}: 名前を取得します</p>
+<p>{{ bio }}: 自己紹介を取得します</p>
+<p>```
+{% for name, url in sns.items() %}
+<br />
+<li><a href="{{ url }}">{{ name|capitalize }}</a></li></p>
+<p>{% endfor %}
+```
+: 外部サイトのurl（config.yml内のsns）を取得します</p>
+<p>{{ content|safe }}: ブログコンテンツを取得します。page.html内でのみ使用可能。</p>
+<p>{{ title }}: ブログタイトルを取得します。page.html内でのみ使用可能。</p>
+<p>{{ background_color }}: 背景色を取得します</p>
+<p>{{ text_color }}: テキストカラーを取得します</p>
+<p>{{ link_color }}: リンクカラーを取得します</p></div>
+    </main>
+
+    <aside class="profile">
+      <h3>この記事を書いた人</h3>
+      <p><strong>nekogakure</strong></p>
+      <p>C/ASM/NEXT/TSが好きな中学生</p>
+      <h4>SNS</h4>
+      <ul>
+        
+          <li><a href="https//twitter.com/">Twitter</a></li>
+        
+          <li><a href="https://github.com/nekogakure">Github</a></li>
+        
+      </ul>
+    </aside>
+  </div>
+
+  <footer>
+    &copy;  GithuBlog. All rights reserved.
+  </footer>
+</body>
+</html>
